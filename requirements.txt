@@ -1,0 +1,14 @@
+docx2txt==0.8
+fitz==0.0.1.dev2
+Flask==3.1.0
+numpy==2.2.3
+pandas==2.2.3
+pdfminer.six==20231228
+pdfplumber==0.11.5
+pymongo==4.11.2
+pywin32==305.1
+pywin32==308
+pyxnat==1.6.3
+scikit_learn==1.4.2
+spacy==3.8.4
+Werkzeug==3.1.3

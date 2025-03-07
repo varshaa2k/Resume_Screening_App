@@ -1,0 +1,50 @@
+#uploadSection {
+    padding: 50px 0;
+    background-color: #515458;
+    border-radius: 10px;
+}
+
+textarea {
+    resize: none;
+}
+/* OR Divider Styling */
+.or-divider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.or-divider .line {
+    width: 2px;
+    height: 40px;
+    background-color: #ccc;
+}
+
+.or-divider span {
+    background-color: white;
+    padding: 5px 10px;
+    font-weight: bold;
+    color: #333;
+    border-radius: 5px;
+    margin: 5px 0;
+}
+
+/* Adjust the Upload and Paste Sections */
+.upload-container, .paste-container {
+    background-color: #f8f9fa; /* Light background */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 40%;  /* Adjust width */
+}
+
+/* Ensures Upload & Paste sections stay aligned */
+.upload-paste-container {
+    display: flex;
+    justify-content: space-between; /* Proper spacing */
+    align-items: center;
+    gap: 5px; /* Space between sections */
+    max-width: 90%; /* Prevents stretching beyond background */
+    margin: auto; /* Centers the section */
+}

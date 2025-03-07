@@ -1,0 +1,28 @@
+{% extends "index.html" %}
+{% block content %}
+<section class="container my-5">
+    <h2 class="text-center mb-4">Perfect jobs based on the skills in your resume is {{prediction[0]}} </h2>
+    <div class="text-center">
+        <p>Want to find jobs relevant to your profile?</p>
+        
+        <!-- Google Job Search -->
+        <a href="https://www.google.com/search?q={{ prediction[0] }} jobs" 
+           target="_blank" class="btn btn-primary">
+            Search on Google
+        </a>
+        
+        <!-- LinkedIn Job Search -->
+        <a href="https://www.linkedin.com/jobs/search/?keywords={{ prediction[0] }}" 
+           target="_blank" class="btn btn-info">
+            Search on LinkedIn
+        </a>
+
+        <!-- Indeed Job Search -->
+        <a href="https://www.indeed.com/jobs?q={{ prediction | safe }}" 
+           target="_blank" class="btn btn-success">
+            Search on Indeed
+        </a>
+    </div>
+</section>
+
+{% endblock %}

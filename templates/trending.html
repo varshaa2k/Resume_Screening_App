@@ -1,0 +1,32 @@
+{% extends "index.html" %}
+{% block content %}
+<section id="trending-jobs" class="container my-5">
+    <h2 class="text-center mb-4">Trending High-Paying Jobs</h2>
+    <div id="jobs-container" class="row"></div>
+</section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        fetch("/trending_jobs")
+            .then(response => response.json())
+            .then(jobs => {
+                let container = document.getElementById("jobs-container");
+                jobs.forEach(job => {
+                    let jobCard = `
+                        <div class="col-md-4 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">${job.title}</h5>
+                                    <p class="card-text"><strong>Salary:</strong> ${job.salary}</p>
+                                    <p class="card-text"><strong>Experience:</strong> ${job.experience}</p>
+                                    <a href="${job.link}" class="btn btn-primary" target="_blank">View Job</a>
+                                </div>
+                            </div>
+                        </div>`;
+                    container.innerHTML += jobCard;
+                });
+            })
+            .catch(error => console.error("Error fetching jobs:", error));
+    });
+</script>
+{% endblock %}

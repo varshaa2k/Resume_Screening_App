@@ -1,0 +1,70 @@
+{% extends "index.html" %}
+{% block content %}
+<!-- Display Flash Messages -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+<div class="container">
+    {% for category, message in messages %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Error:</strong> {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endwith %}
+
+<div class="d-flex justify-content-center">
+    <div class="card shadow-lg p-3 mb-5 bg-white rounded" style="width: 70rem;">
+      <div class="card-body text-center">
+        <h3 class="card-title">Resume Screening App</h3>
+        <p class="card-text">
+          An AI-powered tool that analyzes resumes and job descriptions to determine candidate-job fit. 
+          It automates screening by ranking candidates based on skills and experience.
+        </p>
+        <ul class="text-start">
+          <li><b>Resume Upload:</b> Supports PDF, DOCX, and TXT formats.</li>
+          <li><b>Job Matching Score:</b> AI-based matching with skill gap analysis.</li>
+          <li><b>Database & Search:</b> Find resumes by skills, experience, or keywords.</li>
+          <li><b>Reports & Downloads:</b> Generate detailed reports in Excel/PDF.</li>
+          <li><b>Email Notifications:</b> Send job invites to shortlisted candidates.</li>
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+  <section id="uploadSection" class="container my-5">
+    <h2 class="text-center mb-4 text-white">Upload or Paste Your Resume to find perfect jobs for you !! </h2>
+    <div class="row align-items-center upload-paste-container">
+        <!-- Left: Upload File -->
+        <div class="col-md-5 d-flex flex-column align-items-center upload-container">
+            <h4 >Upload Your Resume</h4>
+            <form action="/upload" method="POST" enctype="multipart/form-data">
+                <input type="file" name="resume_file" class="form-control mb-3" accept=".pdf,.docx.,.txt">
+                <button type="submit" class="btn btn-success">Upload</button>
+            </form>
+        </div>
+
+        <!-- Middle: OR with Vertical Line -->
+        <div class="col-md-2 d-flex justify-content-center align-items-center">
+            <div class="or-divider">
+                <div class="line"></div>
+                <span>OR</span>
+                <div class="line"></div>
+            </div>
+        </div>
+
+        <!-- Right: Paste Resume Text -->
+        <div class="col-md-5 d-flex flex-column align-items-center paste-container">
+            <h4>Copy & Paste Your Resume</h4>
+            <form method="POST" action="/predict">
+            <textarea class="form-control" name= "resume_text" rows="6" placeholder="Paste your resume content here..."></textarea>
+            <button class="btn btn-primary mt-3">Submit</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+
+{% endblock %}

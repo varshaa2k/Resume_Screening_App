@@ -1,0 +1,48 @@
+A Resume Screening App is an AI-powered tool designed to analyze resumes and job descriptions to determine how well a candidate matches a job role. It helps recruiters save time by automating the initial screening process, ranking candidates based on their suitability for a job.
+
+The system utilizes Machine Learning (ML), Natural Language Processing (NLP), and Flask with MongoDB to process resumes, extract relevant skills, and compare them with job requirements.
+
+Key Features & Tabs in the Application
+1. Dashboard
+Overview of the application and recent activity.
+Displays key metrics such as the number of resumes processed, shortlisted candidates, and pending reviews.
+Quick access to main functionalities.
+2. Resume Upload & Processing
+Upload Resume: Users can upload resumes in PDF, DOCX, or TXT format.
+Job Description Input: Users can either enter a job description manually or upload a job description file.
+Automated Analysis: The system extracts key information such as:
+Candidate’s skills
+Experience
+Education
+Keywords matching job description
+3. Job Matching & Scoring
+AI-powered job fit score: Compares the resume with available job descriptions and provides a matching score.
+Multiple Job Matches: Shows which roles the candidate is best suited for.
+Skill Gap Analysis: Highlights missing skills or qualifications.
+4. Resume Database & Search
+Stores all uploaded resumes for easy access.
+Filter & Search resumes by keywords, job roles, skills, or experience.
+View previous applicant history.
+5. Results & Recommendations
+Displays a list of Top Matching Jobs for a candidate.
+Shows matching percentage based on skill similarity.
+Provides suggestions for improving resumes based on missing skills.
+6. Reports & Downloadable Insights
+Generate and download reports in Excel/PDF format.
+Export candidate lists with scores for recruiters.
+View summary vs. detailed reports based on filtering criteria.
+7. Email Notification & Shortlisting
+Send Emails to selected candidates.
+Automatic email notifications for shortlisted applicants.
+Recruiters can send job invites to high-matching candidates.
+8. User Authentication & Role Management
+Admin Panel: Manage job postings, user roles, and system settings.
+Recruiter Login: View and manage resumes.
+Candidate Login: Check job fit and receive recommendations.
+Technology Stack
+Frontend: HTML, CSS, Bootstrap, JavaScript
+Backend: Flask (Python)
+Database: MongoDB (to store resumes & job descriptions)
+Machine Learning: NLP-based model (TF-IDF, Logistic Regression)
+File Processing: Python libraries like pdfminer, docx, spacy
+This Resume Screening App streamlines the hiring process, making it faster and more efficient for recruiters and candidates alike! 

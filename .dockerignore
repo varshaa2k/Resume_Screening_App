@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+*.pyo
+resume/
+resume/Lib/
+resume/Scripts/
+resume/Include/

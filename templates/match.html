@@ -1,0 +1,58 @@
+{% extends "index.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">Resume to Job Match</h2>
+
+    <div class="mb-3">
+        <label class="form-label">Paste Your Resume:</label>
+        <textarea class="form-control" id="resume_text" placeholder="Paste your resume here..."></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Paste Job Description:</label>
+        <textarea class="form-control" id="job_description" placeholder="Paste job description here..."></textarea>
+    </div>
+
+    <button class="btn btn-primary w-100" onclick="matchResume()">Check Match</button>
+
+    <div class="alert mt-3 result-box" id="resultBox" style="display:none;">
+        <p class="match-score fw-bold fs-4" id="matchScore"></p>
+        <p class="status fw-bold" id="status"></p>
+        <p><b>Skills to Improve:</b> <span id="missingSkills"></span></p>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    function matchResume() {
+        let resumeText = $("#resume_text").val().trim();
+        let jobDescription = $("#job_description").val().trim();
+
+        if (!resumeText || !jobDescription) {
+            alert("Please enter both resume and job description!");
+            return;
+        }
+
+        $.ajax({
+            url: "/match_resume",
+            type: "POST",
+            contentType: "application/json",
+            data: JSON.stringify({ resume_text: resumeText, job_description: jobDescription }),
+            success: function(response) {
+                $("#matchScore").text("Match Score: " + response.match_score + "%");
+                $("#status").text(response.status)
+                    .removeClass()
+                    .addClass(response.status === "Perfect Match!" ? "alert alert-success" : "alert alert-danger");
+                $("#missingSkills").text(response.missing_skills.join(", ") || "None");
+
+                $("#resultBox").show();
+            },
+            error: function(xhr) {
+                alert(xhr.responseJSON.error);
+            }
+        });
+    }
+</script>
+{% endblock %}

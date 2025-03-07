@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    {% block scripts %}{% endblock %}
+    <title>Resume Screening</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">Resume Screening</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/" onclick="goToUpload(event)">Perfect job for you</a>
+
+<script>
+    function goToUpload(event) {
+        event.preventDefault();  // Prevent normal link behavior
+        window.location.href = "/#uploadSection";  // Redirect to home and scroll
+    }
+</script>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/matchjobs">Match score</a>
+              </li>
+            </ul>
+            
+          </div>
+        </div>
+        <br>
+        <br>
+      </nav>
+
+    {%block content%}
+    {% endblock %}
+    <footer id="contact" class="footer bg-dark text-white text-center py-2 mt-4">
+      <div class="container">
+          <p class="mb-1">&copy; 2025 Resume Screening App. All Rights Reserved.</p>
+          <p class="mb-1">Contact: 
+              <a href="mailto:support@resumescreening.com" class="text-white">support@resumescreening.com</a>
+          </p>
+          <p class="mb-0">
+              <a href="/privacy-policy" class="text-white mx-2">Privacy Policy</a> |
+              <a href="/terms-of-service" class="text-white mx-2">Terms of Service</a>
+          </p>
+      </div>
+  </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
